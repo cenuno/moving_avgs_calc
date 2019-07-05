@@ -14,4 +14,25 @@ def split_list(J, p):
         output.append(J[i:i+p])
     return output
 
-print(split_list(J, p))
+result = split_list(J, p)
+
+def get_minmax(J, p):
+    '''Get minimum and maximum from list and return 
+    a tuple
+    '''
+
+    results = split_list(J, p)
+    min_avg = None
+    max_avg = None
+
+    means = []
+
+    for result in results:
+        means.append(sum(result)/(len(result)))
+    min_avg = min(means)
+    max_avg = max(means)
+
+    return(min_avg, max_avg)
+
+
+print(get_minmax(J, p))
